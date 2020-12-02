@@ -40,20 +40,7 @@ namespace Day01
 
             Console.WriteLine($"The answer is: {output1}");
 
-            IEnumerable<IEnumerable<int>> allSets = lines.GetUnorderedSubsets(2);
-
-            int combinationCount = 0;
-            for (int i = 0; i < lines.Length - 1; i++)
-            {
-                for (int j = i + 1; j < lines.Length; j++)
-                {
-                    combinationCount++;
-                }
-            }
-
-            Console.WriteLine($"All Set Count: {allSets.Count()} vs Expectation {combinationCount}");
-
-            int linqOutput1 = lines.GetUnorderedSubsets(2).Where(x => x.Sum() == 2020).First().Aggregate(1, (x, y) => x * y);
+            int linqOutput1 = lines.GetUnorderedSubsets(2).First(x => x.Sum() == 2020).Aggregate(1, (x, y) => x * y);
 
             Console.WriteLine($"The Linq answer is: {linqOutput1}");
 
@@ -96,7 +83,7 @@ namespace Day01
 
             Console.WriteLine($"The answer is: {output2}");
 
-            int linqOutput2 = lines.GetUnorderedSubsets(3).Where(x => x.Sum() == 2020).First().Aggregate(1, (x, y) => x * y);
+            int linqOutput2 = lines.GetUnorderedSubsets(3).First(x => x.Sum() == 2020).Aggregate(1, (x, y) => x * y);
 
             Console.WriteLine($"The Linq answer is: {linqOutput2}");
 
