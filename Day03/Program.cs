@@ -11,34 +11,83 @@ namespace Day03
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Day 3");
+            Console.WriteLine("Day 3 - Toboggan Trajectory");
             Console.WriteLine("Star 1");
             Console.WriteLine();
 
             string[] lines = File.ReadAllLines(inputFile);
 
+            {
+                int x = 0;
+                int y = 0;
 
+                int treeCount = 0;
 
-            int output1 = 0;
+                while (y < lines.Length)
+                {
+                    if (CheckForTree(lines, x, y))
+                    {
+                        treeCount++;
+                    }
 
+                    y++;
+                    x += 3;
+                }
 
-
-            Console.WriteLine($"The answer is: {output1}");
+                Console.WriteLine($"The answer is: {treeCount}");
+            }
 
             Console.WriteLine();
             Console.WriteLine("Star 2");
             Console.WriteLine();
 
+            long cumulativeTreeCount = 1;
 
-            int output2 = 0;
+            (int, int)[] offsets = new[]
+            {
+                (1, 1),
+                (3, 1),
+                (5, 1),
+                (7, 1),
+                (1, 2)
+            };
+
+            foreach ((int xOffset, int yOffset) in offsets)
+            {
+                int x = 0;
+                int y = 0;
+
+                long treeCount = 0;
+
+                while (y < lines.Length)
+                {
+                    if (CheckForTree(lines, x, y))
+                    {
+                        treeCount++;
+                    }
+
+                    x += xOffset;
+                    y += yOffset;
+                }
+
+                cumulativeTreeCount *= treeCount;
+            }
+
+            Console.WriteLine($"The answer is: {cumulativeTreeCount}");
 
 
-
-            Console.WriteLine($"The answer is: {output2}");
 
 
             Console.WriteLine();
             Console.ReadKey();
+        }
+
+
+        private static bool CheckForTree(string[] lines, int x, int y)
+        {
+            x %= lines[0].Length;
+
+            return lines[y][x] == '#';
         }
     }
 }

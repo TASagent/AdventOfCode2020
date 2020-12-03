@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day01", "Day01\Day01.csproj", "{D57D930F-DEC1-482D-9B77-16916ED7A093}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day01 - Report Repair", "Day01\Day01 - Report Repair.csproj", "{D57D930F-DEC1-482D-9B77-16916ED7A093}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day02 - Password Philosophy", "Day02\Day02 - Password Philosophy.csproj", "{4F900406-4EB7-4D2C-AE31-95E2FDDC107C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day03", "Day03\Day03.csproj", "{D8B439A6-0D20-4ABD-AFF0-33103B5014FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day03 - Toboggan Trajectory", "Day03\Day03 - Toboggan Trajectory.csproj", "{D8B439A6-0D20-4ABD-AFF0-33103B5014FE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day04", "Day04\Day04.csproj", "{85FF6BA5-4173-4BDD-9570-FD440B33E521}"
 EndProject

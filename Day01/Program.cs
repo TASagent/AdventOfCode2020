@@ -13,12 +13,45 @@ namespace Day01
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Day 1");
+            Console.WriteLine("Day 1 - Report Repair");
             Console.WriteLine("Star 1");
             Console.WriteLine();
 
-            int[] lines = File.ReadAllLines(inputFile).Select(int.Parse).ToArray();
+            int[] lines = File.ReadLines(inputFile).Select(int.Parse).ToArray();
 
+            int output1 = 0;
+            int output2 = 0;
+
+            if (args.Length > 0 && args[0] == "-old")
+            {
+                (output1, output2) = SimpleSolution(lines);
+            }
+            else
+            {
+                (output1, output2) = LinqSolution(lines);
+            }
+
+            Console.WriteLine($"The answer is: {output1}");
+
+            Console.WriteLine();
+            Console.WriteLine("Star 2");
+            Console.WriteLine();
+
+            Console.WriteLine($"The answer is: {output2}");
+
+
+            Console.WriteLine();
+            Console.ReadKey();
+        }
+
+        /// <summary>
+        /// The simple, initial solution I submitted onstream
+        /// </summary>
+        static (int,int) SimpleSolution(int[] lines)
+        {
+            //
+            // First Star
+            //
             int output1 = 0;
 
             for (int i = 0; i < lines.Length - 1; i++)
@@ -38,26 +71,15 @@ namespace Day01
                 }
             }
 
-            Console.WriteLine($"The answer is: {output1}");
-
-            int linqOutput1 = lines.GetUnorderedSubsets(2).First(x => x.Sum() == 2020).Aggregate(1, (x, y) => x * y);
-
-            Console.WriteLine($"The Linq answer is: {linqOutput1}");
-
-
-
-            Console.WriteLine();
-            Console.WriteLine("Star 2");
-            Console.WriteLine();
-
-
+            //
+            // Second star
+            //
             int output2 = 0;
 
             for (int i = 0; i < lines.Length - 2; i++)
             {
                 for (int j = i + 1; j < lines.Length - 1; j++)
                 {
-
                     for (int k = j + 1; k < lines.Length; k++)
                     {
                         if (lines[i] + lines[j] + lines[k] == 2020)
@@ -79,17 +101,32 @@ namespace Day01
                 }
             }
 
+            return (output1, output2);
+        }
 
 
-            Console.WriteLine($"The answer is: {output2}");
+        /// <summary>
+        /// A more sophisticated, albeit less clear, Linq-based solution
+        /// </summary>
+        static (int, int) LinqSolution(int[] lines)
+        {
+            //
+            // First Star
+            //
+            int output1 = lines
+                .GetUnorderedSubsets(2) //Get every unique, 2-item subset 
+                .First(x => x.Sum() == 2020) //Get just the first subset which sums to 2020
+                .Aggregate(1, (x, y) => x * y); //Find the product of all elements
 
-            int linqOutput2 = lines.GetUnorderedSubsets(3).First(x => x.Sum() == 2020).Aggregate(1, (x, y) => x * y);
+            //
+            // Second star
+            //
+            int output2 = lines
+                .GetUnorderedSubsets(3) //Get every unique, 3-item subset 
+                .First(x => x.Sum() == 2020) //Get just the first subset which sums to 2020
+                .Aggregate(1, (x, y) => x * y); //Find the product of all elements
 
-            Console.WriteLine($"The Linq answer is: {linqOutput2}");
-
-
-            Console.WriteLine();
-            Console.ReadKey();
+            return (output1, output2);
         }
     }
 }

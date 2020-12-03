@@ -15,7 +15,7 @@ namespace Day02
             Console.WriteLine("Star 1");
             Console.WriteLine();
 
-            IEnumerable<Password> passwords = File.ReadLines(inputFile).Select(x => new Password(x));
+            IEnumerable<Password> passwords = File.ReadLines(inputFile).Select(x => new Password(x)).ToArray();
 
             int output1 = passwords.Count(x => x.IsValid());
 
@@ -34,7 +34,7 @@ namespace Day02
             Console.ReadKey();
         }
 
-        class Password
+        private class Password
         {
             private int lowerBound;
             private int upperBound;
