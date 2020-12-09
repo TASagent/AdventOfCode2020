@@ -11,30 +11,70 @@ namespace Day09
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Day 9");
+            Console.WriteLine("Day 9 - Encoding Error");
             Console.WriteLine("Star 1");
             Console.WriteLine();
 
-            string[] lines = File.ReadAllLines(inputFile);
+            long[] numbers = File.ReadAllLines(inputFile).Select(long.Parse).ToArray();
+            HashSet<long> searchingDigit = new HashSet<long>(25);
 
+            long firstBadNumber = -1;
 
+            for (int i = 25; i < numbers.Length; i++)
+            {
+                long targetNumber = numbers[i];
+                bool found = false;
 
-            int output1 = 0;
+                for (int j = 1; j < 26; j++)
+                {
+                    if (searchingDigit.Contains(numbers[i - j]))
+                    {
+                        found = true;
+                        break;
+                    }
 
+                    searchingDigit.Add(targetNumber - numbers[i - j]);
+                }
 
+                if (!found)
+                {
+                    firstBadNumber = targetNumber;
+                    break;
+                }
 
-            Console.WriteLine($"The answer is: {output1}");
+                searchingDigit.Clear();
+            }
+
+            Console.WriteLine($"The answer is: {firstBadNumber}");
 
             Console.WriteLine();
             Console.WriteLine("Star 2");
             Console.WriteLine();
 
+            int lowerIndex = 0;
+            int upperIndex = 0;
+            long cumulativeSum = 0;
 
-            int output2 = 0;
+            while (cumulativeSum != firstBadNumber)
+            {
+                while (cumulativeSum < firstBadNumber)
+                {
+                    cumulativeSum += numbers[upperIndex];
+                    upperIndex++;
+                }
+
+                while (cumulativeSum > firstBadNumber)
+                {
+                    cumulativeSum -= numbers[lowerIndex];
+                    lowerIndex++;
+                }
+            }
+
+            long min = numbers[lowerIndex..upperIndex].Min();
+            long max = numbers[lowerIndex..upperIndex].Max();
 
 
-
-            Console.WriteLine($"The answer is: {output2}");
+            Console.WriteLine($"The answer is: {min + max}");
 
 
             Console.WriteLine();
