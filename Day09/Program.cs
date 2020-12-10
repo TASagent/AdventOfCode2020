@@ -33,7 +33,12 @@ namespace Day09
                         break;
                     }
 
-                    searchingDigit.Add(targetNumber - numbers[i - j]);
+                    long partnerNumber = targetNumber - numbers[i - j];
+
+                    if (partnerNumber != numbers[i - j])
+                    {
+                        searchingDigit.Add(partnerNumber);
+                    }
                 }
 
                 if (!found)
