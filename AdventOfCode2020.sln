@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day08 - Handheld Halting", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day09 - Encoding Error", "Day09\Day09 - Encoding Error.csproj", "{BF06D155-A190-463E-A567-B3B288BF15AB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day10", "Day10\Day10.csproj", "{74D69D4B-644D-45EC-BE2D-6D0244A9FACD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day10 - Adapter Array", "Day10\Day10 - Adapter Array.csproj", "{74D69D4B-644D-45EC-BE2D-6D0244A9FACD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day11", "Day11\Day11.csproj", "{CFFD03E3-6C6E-4F96-81A0-535A78AB20C7}"
 EndProject
