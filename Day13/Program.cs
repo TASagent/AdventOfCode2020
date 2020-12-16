@@ -62,7 +62,6 @@ namespace Day13
                 currentFactor *= id;
             }
 
-
             Console.WriteLine($"The answer is: {currentTime}");
 
 

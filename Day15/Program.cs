@@ -7,19 +7,55 @@ namespace Day15
 {
     class Program
     {
-        private const string inputFile = @"../../../../input15.txt";
+        const string input = "0,13,1,16,6,17";
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Day 15");
+            Console.WriteLine("Day 15 - Rambunctious Recitation");
             Console.WriteLine("Star 1");
             Console.WriteLine();
 
-            string[] lines = File.ReadAllLines(inputFile);
+            Dictionary<long, long> numberLastRecitation = new Dictionary<long, long>();
 
 
+            List<int> problemInput = input.Split(',').Select(int.Parse).ToList();
+            long lastNumber = -1;
+            long index = 0;
 
-            int output1 = 0;
+            foreach (int value in problemInput)
+            {
+                if (lastNumber != -1)
+                {
+                    numberLastRecitation.Add(lastNumber, index++);
+                }
+                lastNumber = value;
+                Console.WriteLine($"{index}: {lastNumber}");
+            }
+
+            while (index < 2019)
+            {
+                if (numberLastRecitation.ContainsKey(lastNumber))
+                {
+                    //It's been said
+                    long diff = index - numberLastRecitation[lastNumber];
+                    numberLastRecitation[lastNumber] = index++;
+                    lastNumber = diff;
+                }
+                else
+                {
+                    //It's new 
+                    //Say Zero
+                    numberLastRecitation[lastNumber] = index++;
+                    lastNumber = 0;
+                }
+
+                if (index < 10 || index > 2010)
+                {
+                    Console.WriteLine($"{index}: {lastNumber}");
+                }
+            }
+
+            long output1 = lastNumber;
 
 
 
@@ -29,12 +65,34 @@ namespace Day15
             Console.WriteLine("Star 2");
             Console.WriteLine();
 
-
-            int output2 = 0;
-
+            long targetNum = 10000;
 
 
-            Console.WriteLine($"The answer is: {output2}");
+            while (index < 30_000_000L - 1)
+            {
+                if (index > targetNum)
+                {
+                    Console.WriteLine($"We reached {targetNum}");
+                    targetNum *= 10;
+                }
+
+                if (numberLastRecitation.ContainsKey(lastNumber))
+                {
+                    //It's been said
+                    long diff = index - numberLastRecitation[lastNumber];
+                    numberLastRecitation[lastNumber] = index++;
+                    lastNumber = diff;
+                }
+                else
+                {
+                    //It's new 
+                    //Say Zero
+                    numberLastRecitation[lastNumber] = index++;
+                    lastNumber = 0;
+                }
+            }
+
+            Console.WriteLine($"The answer is: {lastNumber}");
 
 
             Console.WriteLine();
