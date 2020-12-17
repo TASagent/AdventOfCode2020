@@ -57,5 +57,15 @@ namespace AoCTools
             new Point3D(rhs.x * lhs, rhs.y * lhs, rhs.z * lhs);
 
         public int Length => Math.Abs(x) + Math.Abs(y) + Math.Abs(z);
+
+        public static Point3D Min(Point3D a, Point3D b) => new Point3D(
+            x: Math.Min(a.x, b.x),
+            y: Math.Min(a.y, b.y),
+            z: Math.Min(a.z, b.z));
+
+        public static Point3D Max(Point3D a, Point3D b) => new Point3D(
+            x: Math.Max(a.x, b.x),
+            y: Math.Max(a.y, b.y),
+            z: Math.Max(a.z, b.z));
     }
 }
