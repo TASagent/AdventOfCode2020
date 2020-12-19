@@ -46,8 +46,8 @@ namespace Day17
 
                     foreach (Point3D point in activeStates)
                     {
-                        min = Point3D.Min(min, point);
-                        max = Point3D.Max(max, point);
+                        min = AoCMath.Min(min, point);
+                        max = AoCMath.Max(max, point);
                     }
 
                     for (int x = min.x - 1; x <= max.x + 1; x++)
@@ -106,8 +106,8 @@ namespace Day17
 
                     foreach (Point4D point in activeStates)
                     {
-                        min = Point4D.Min(min, point);
-                        max = Point4D.Max(max, point);
+                        min = AoCMath.Min(min, point);
+                        max = AoCMath.Max(max, point);
                     }
 
                     for (int x = min.x - 1; x <= max.x + 1; x++)

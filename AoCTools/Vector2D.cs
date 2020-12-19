@@ -53,5 +53,14 @@ namespace AoCTools
             new Vector2D(lhs.x / rhs, lhs.y / rhs);
 
         public double Length => Math.Sqrt(x * x + y * y);
+
+        public void Deconstruct(out double x, out double y)
+        {
+            x = this.x;
+            y = this.y;
+        }
+
+        public Vector3D AsVector3D => new Vector3D(x, y, 0.0);
+        public Vector4D AsVector4D => new Vector4D(x, y, 0.0, 0.0);
     }
 }

@@ -46,7 +46,7 @@ namespace AoCTools
             lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z && lhs.w == rhs.w;
 
         public static bool operator !=(in Point4D lhs, in Point4D rhs) =>
-            lhs.x != rhs.x || lhs.y != rhs.y || lhs.z != rhs.z;
+            lhs.x != rhs.x || lhs.y != rhs.y || lhs.z != rhs.z || lhs.w != rhs.w;
 
         public static Point4D operator +(in Point4D lhs, in Point4D rhs) =>
             new Point4D(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z, lhs.w + rhs.w);
@@ -61,16 +61,12 @@ namespace AoCTools
 
         public int Length => Math.Abs(x) + Math.Abs(y) + Math.Abs(z) + Math.Abs(w);
 
-        public static Point4D Min(Point4D a, Point4D b) => new Point4D(
-            x: Math.Min(a.x, b.x),
-            y: Math.Min(a.y, b.y),
-            z: Math.Min(a.z, b.z),
-            w: Math.Min(a.w, b.w));
-
-        public static Point4D Max(Point4D a, Point4D b) => new Point4D(
-            x: Math.Max(a.x, b.x),
-            y: Math.Max(a.y, b.y),
-            z: Math.Max(a.z, b.z),
-            w: Math.Max(a.w, b.w));
+        public void Deconstruct(out int x, out int y, out int z, out int w)
+        {
+            x = this.x;
+            y = this.y;
+            z = this.z;
+            w = this.w;
+        }
     }
 }

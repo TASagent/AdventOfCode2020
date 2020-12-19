@@ -51,5 +51,14 @@ namespace AoCTools
             new LongPoint2D(rhs.x * lhs, rhs.y * lhs);
 
         public long Length => Math.Abs(x) + Math.Abs(y);
+
+        public LongPoint3D AsLongPoint3D => new LongPoint3D(x, y, 0);
+        public LongPoint4D AsLongPoint4D => new LongPoint4D(x, y, 0, 0);
+
+        public void Deconstruct(out long x, out long y)
+        {
+            x = this.x;
+            y = this.y;
+        }
     }
 }

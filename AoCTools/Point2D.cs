@@ -51,5 +51,14 @@ namespace AoCTools
             new Point2D(rhs.x * lhs, rhs.y * lhs);
 
         public int Length => Math.Abs(x) + Math.Abs(y);
+
+        public void Deconstruct(out int x, out int y)
+        {
+            x = this.x;
+            y = this.y;
+        }
+
+        public Point3D AsPoint3D => new Point3D(x, y, 0);
+        public Point4D AsPoint4D => new Point4D(x, y, 0, 0);
     }
 }

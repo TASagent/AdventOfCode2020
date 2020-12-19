@@ -58,14 +58,13 @@ namespace AoCTools
 
         public int Length => Math.Abs(x) + Math.Abs(y) + Math.Abs(z);
 
-        public static Point3D Min(Point3D a, Point3D b) => new Point3D(
-            x: Math.Min(a.x, b.x),
-            y: Math.Min(a.y, b.y),
-            z: Math.Min(a.z, b.z));
+        public void Deconstruct(out int x, out int y, out int z)
+        {
+            x = this.x;
+            y = this.y;
+            z = this.z;
+        }
 
-        public static Point3D Max(Point3D a, Point3D b) => new Point3D(
-            x: Math.Max(a.x, b.x),
-            y: Math.Max(a.y, b.y),
-            z: Math.Max(a.z, b.z));
+        public Point4D AsPoint4D => new Point4D(x, y, z, 0);
     }
 }
