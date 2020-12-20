@@ -34,12 +34,18 @@ namespace Day19
             Console.WriteLine("Star 2");
             Console.WriteLine();
 
+            var timer = new System.Diagnostics.Stopwatch();
+            timer.Start();
+
             Rule.ruleLookup[8] = new AlternateRule(8, "42 | 42 8");
             Rule.ruleLookup[11] = new AlternateRule(11, "42 31 | 42 11 31");
 
             int output2 = messages.Count(CheckMessage);
 
+            timer.Stop();
+
             Console.WriteLine($"The answer is: {output2}");
+            Console.WriteLine($"The solution took: {timer.ElapsedMilliseconds} ms");
 
 
             Console.WriteLine();
