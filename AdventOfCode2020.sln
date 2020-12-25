@@ -51,7 +51,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day23 - Crab Cups", "Day23\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day24 - Lobby Layout", "Day24\Day24 - Lobby Layout.csproj", "{0D370A91-F3D2-4506-9A27-FBF44DF2B295}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day25", "Day25\Day25.csproj", "{B1EF390A-22E6-4E2F-8780-884DFE29151F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day25 - Combo Breaker", "Day25\Day25 - Combo Breaker.csproj", "{B1EF390A-22E6-4E2F-8780-884DFE29151F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AoCTools", "AoCTools\AoCTools.csproj", "{FB1A2BEC-F2A1-46BE-9C2A-60C9C10C7123}"
 EndProject
